@@ -7,19 +7,23 @@ namespace challenge_palindrome_Saixah
     {
         static void Main(string[] args)
         {
-            if(isPalindrome())
+            if(isPalindrome(getUserInput()))
                 Console.WriteLine("Is a Palindrom");
             else 
                 Console.WriteLine("Not a Palindrome");
         }
 
-        public static bool isPalindrome()
+        public static bool isPalindrome(string Input)
+        {
+            var Reversed = new string (Input.Reverse().ToArray());
+            var isPalindrom = Input == Reversed;
+            return isPalindrom;
+        }
+
+        public static string getUserInput()
         {
             Console.WriteLine("Please Enter a Word");
-            var UserInput = Console.ReadLine();
-            var Reversed = new string(UserInput.Reverse().ToArray());
-            var isPalindrom = UserInput == Reversed;
-            return isPalindrom;
+            return Console.ReadLine();
         }
     }
 }
